@@ -1,0 +1,13 @@
+.proyecto {
+  position: relative;
+  padding: 15px;
+  background-color: #f5eaea;
+  border-color: rgb(54, 51, 51);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  justify-content: center;
+}

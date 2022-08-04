@@ -1,0 +1,27 @@
+<div class="toolbar" [style]="misDatos.backImage">
+  <div class="col-4">
+    <img
+      width="140"
+      alt="Logo YoProgramo"
+      [src]="misDatos.logoYoProgramo"
+    />
+    <img
+      width="160"
+      alt="Logo Inti"
+      [src]="misDatos.logoInti"
+    />
+  </div>
+  <div class="col-6">
+    <span><h1>PORTFOLIO PERSONAL</h1></span>
+  </div>
+  <div class="col-1" style="display: flex; justify-content: center">
+    <img
+      width="40"
+      alt="Logo LinkdIn"
+      [src]="misDatos.logoLinkdin"
+    />
+  </div>
+  <div class="col-1">
+    <button type="button" class="btn btn-primary" (click)="login($event)">{{misDatos.boton}}</button>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<h1 class="m-5">Iniciar Sesion:</h1>
+<form [formGroup]="form" class="m-5" (ngSubmit)="onEnviar($event)">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input formControlName="user" type="email"
+    [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched }"
+    class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div *ngIf="Email?.errors && Email?.touched">
+      <p *ngIf="Email?.hasError('required')" class="text-danger">El email es requerido</p>
+      <p *ngIf="Email?.hasError('user')" class="text-danger">El email no es correcto</p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+    <input type="password" formControlName="password"
+    [ngClass]="{'is-invalid': Password?.errors && Password?.touched,'is-valid': !Password?.errors && Password?.touched }"
+    class="form-control" id="exampleInputPassword1">
+    <div *ngIf="Password?.errors && Password?.touched">
+      <p *ngIf="Password?.hasError('required')" class="text-danger">El password es requerido</p>
+      <p *ngIf="Password?.errors?.['minlength']" class="text-danger">El passowrd debe tener al menos 8 caracteres</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1">
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Ingresar</button>
+    </div>
+    <div class="col-5">
+      &nbsp;&nbsp;<button onclick="history.back()" class="btn btn-danger" >Volver</button>
+    </div>
+  </div>
+</form>
+<div class="m-5 border border-danger border-2 rounded" *ngIf="errorLogin">
+    <p *ngIf="errorLogin" class="text-danger is-invalid" align="center">NOMBRE DE USUARIO O CONTRASEÑA INCORRECTOS</p>
+</div>

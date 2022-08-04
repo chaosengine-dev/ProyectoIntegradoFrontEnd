@@ -1,0 +1,29 @@
+<h2 class="m-2">Eliminar Proyecto:</h2>
+<form [formGroup]="form" class="m-2" (ngSubmit)="onEnviar($event)">
+  <div class="mb-3">
+    <input type="hidden" id="id">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input readonly formControlName="nombre" type="text" class="form-control" id="nombre" aria-describedby="emailHelp" >
+  </div>
+  <div class="mb-3">
+    <label for="detalle" class="form-label">Detalle</label>
+    <input readonly formControlName="detalle" type="text" class="form-control" id="detalle" aria-describedby="detalle" >
+  </div>
+  <div class="mb-3">
+    <label for="tipo" class="form-label">Tipo de proyecto</label>
+    <input readonly formControlName="tipo" type="text" class="form-control" id="tipo" aria-describedby="tipo" >
+  </div>
+  <div class="mb-3">
+    <label for="logo" class="form-label">Logo o captura</label>
+    <input readonly type="text" formControlName="logo" class="form-control" id="logo">
+  </div>
+  <div class="mb-3">
+    <label for="url" class="form-label">URL del proyecto o repositorio</label>
+    <input readonly type="text" formControlName="url" class="form-control" id="url">
+  </div>
+  <button type="submit" class="btn btn-success" >Eliminar</button>
+</form>
+<div>
+  <br>
+  &nbsp;&nbsp;<button onclick="history.back()" class="btn btn-danger" >Volver</button>
+</div>

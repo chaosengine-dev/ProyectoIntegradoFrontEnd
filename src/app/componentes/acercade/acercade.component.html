@@ -1,0 +1,20 @@
+<div class="acerca">
+  <div class="row">
+    <div class="col-2">
+      <img
+        width="137"
+        alt="Foto Perfil"
+        [src]="misDatos.linkfotopersonal"
+      />
+    </div>
+    <div class="col-8">
+      <h4>{{misDatos.apellido}} {{misDatos.nombre}}</h4>
+      <h5>{{misDatos.titulo}}</h5>
+      <h5>{{misDatos.otrotitulo}}</h5>
+      <p><a [href]="misDatos.url">Información de contacto</a></p>
+    </div>
+    <div class="col-2">
+      <button *ngIf="isLogued" type="button" class="btn btn-info" (click)="editPersona($event)">Editar</button>
+    </div>
+  </div>
+</div>

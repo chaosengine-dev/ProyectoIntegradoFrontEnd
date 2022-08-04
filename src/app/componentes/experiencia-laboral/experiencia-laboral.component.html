@@ -1,0 +1,30 @@
+<!-- Experiencia Laboral -->
+<div class="experiencia">
+  <div class="btn-toolbar">
+    <div class="col-10">
+      <h3>Experiencia laboral</h3>
+    </div>
+    <div class="col-2">
+      <button *ngIf="isLogued" type="button" class="btn btn-info" (click)="agregarExperiencia($event)">Agregar</button>
+    </div>
+  </div>
+  <div class="btn-toolbar" *ngFor="let job of misDatos">
+    <div class="col-2" >
+      <img *ngIf="job.logo != null"
+        width="137"
+        [src]="job.logo"
+      />
+    </div>
+    <div class="col-10">
+      <h4>{{job.nombre}}</h4>
+      <h5>{{job.descripcion}}</h5>
+      <p><a [href]="job.url">Información de contacto</a></p>
+      <p *ngIf="isLogued">
+        <button type="button" class="btn btn-info" (click)="editExperiencia($event, job.id)">Editar</button>
+        &nbsp;
+        <button type="button" class="btn btn-info" (click)="deleteExperiencia($event, job.id)">Borrar</button>
+      </p>
+    </div>
+  </div>
+</div>
+

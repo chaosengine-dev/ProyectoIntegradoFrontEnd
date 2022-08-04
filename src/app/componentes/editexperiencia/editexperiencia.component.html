@@ -1,0 +1,47 @@
+<h2 class="m-2">Editar Experiencia Laboral:</h2>
+<form [formGroup]="form" class="m-2" (ngSubmit)="onEnviar($event)">
+  <div class="mb-3">
+    <input type="hidden" id="id">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input formControlName="nombre" type="text"
+    [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid': !Nombre?.errors && Nombre?.touched }"
+    class="form-control" id="nombre" aria-describedby="emailHelp">
+    <div *ngIf="Nombre?.errors && Nombre?.touched">
+      <p *ngIf="Nombre?.hasError('required')" class="text-danger">El nombre es requerido</p>
+      <p *ngIf="Nombre?.hasError('nombre')" class="text-danger">El nombre no es correcto</p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="descripcion" class="form-label">Descripcion</label>
+    <input formControlName="descripcion" type="text"
+    [ngClass]="{'is-invalid': Descripcion?.errors && Descripcion?.touched, 'is-valid': !Descripcion?.errors && Descripcion?.touched }"
+    class="form-control" id="descripcion" aria-describedby="descripcion" >
+    <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+      <p *ngIf="Descripcion?.hasError('required')" class="text-danger">La descripcion es requerida.</p>
+      <p *ngIf="Descripcion?.hasError('apellido')" class="text-danger">La descripcion no es correcta.</p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="logo" class="form-label">Logo Empresa</label>
+    <input type="text" formControlName="logo"
+    [ngClass]="{'is-invalid': Logo?.errors && Logo?.touched, 'is-valid': !Logo?.errors && Logo?.touched }"
+    class="form-control" id="logo">
+    <div *ngIf="Logo?.errors && Logo?.touched">
+      <p *ngIf="Logo?.hasError('required')" class="text-danger">El logo es requerido</p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="url" class="form-label">URL de Linkedin para contacto</label>
+    <input type="text" formControlName="url"
+    [ngClass]="{'is-invalid': Url?.errors && Url?.touched, 'is-valid': !Url?.errors && Url?.touched }"
+    class="form-control" id="url">
+    <div *ngIf="Url?.errors && Url?.touched">
+      <p *ngIf="Url?.hasError('required')" class="text-danger">La url de de contacto es requerida</p>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid" >Guardar</button>
+</form>
+<div>
+  <br>
+  &nbsp;&nbsp;<button onclick="history.back()" class="btn btn-danger" >Volver</button>
+</div>

@@ -1,0 +1,30 @@
+<!-- Educacion -->
+<div class="education">
+  <div class="btn-toolbar">
+    <div class="col-10">
+      <h3>Educación</h3>
+    </div>
+    <div class="col-2">
+      <button *ngIf="isLogued" type="button" class="btn btn-info" (click)="agregarEducacion($event)">Agregar</button>
+    </div>
+  </div>
+  <div class="btn-toolbar" *ngFor="let educacion of misDatos">
+    <div class="col-2" >
+      <img *ngIf="educacion.logo != null"
+        width="137"
+        alt="Foto Perfil"
+        [src]="educacion.logo"
+      />
+    </div>
+    <div class="col-10">
+      <h4>{{educacion.nombre}}</h4>
+      <h5>{{educacion.descripcion}}</h5>
+      <p>{{educacion.fechaInicio}} - {{educacion.fechaHasta}}</p>
+      <p *ngIf="isLogued">
+        <button type="button" class="btn btn-info" (click)="editEducacion($event, educacion.id)">Editar</button>
+        &nbsp;
+        <button type="button" class="btn btn-info" (click)="deleteEducacion($event, educacion.id)">Borrar</button>
+      </p><br>
+    </div>
+  </div>
+</div>

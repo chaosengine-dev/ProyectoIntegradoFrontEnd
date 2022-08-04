@@ -1,0 +1,56 @@
+<h2 class="m-2">Editar Proyecto Desarrollado:</h2>
+<form [formGroup]="form" class="m-2" (ngSubmit)="onEnviar($event)">
+  <div class="mb-3">
+    <input type="hidden" id="id">
+    <label for="nombre" class="form-label">Nombre Proyecto</label>
+    <input formControlName="nombre" type="text"
+    [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid': !Nombre?.errors && Nombre?.touched }"
+    class="form-control" id="nombre" aria-describedby="emailHelp">
+    <div *ngIf="Nombre?.errors && Nombre?.touched">
+      <p *ngIf="Nombre?.hasError('required')" class="text-danger">El nombre es requerido</p>
+      <p *ngIf="Nombre?.hasError('nombre')" class="text-danger">El nombre no es correcto</p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="detalle" class="form-label">Detalle del proyecto</label>
+    <input formControlName="detalle" type="text"
+    [ngClass]="{'is-invalid': Detalle?.errors && Detalle?.touched, 'is-valid': !Detalle?.errors && Detalle?.touched }"
+    class="form-control" id="detalle" aria-describedby="detalle" >
+    <div *ngIf="Detalle?.errors && Detalle?.touched">
+      <p *ngIf="Detalle?.hasError('required')" class="text-danger">El campo detalle es requerido.</p>
+      <p *ngIf="Detalle?.hasError('detalle')" class="text-danger">El campo detalle no es correcto.</p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="tipo" class="form-label">Tipo de proyecto</label>
+    <input type="text" formControlName="tipo"
+    [ngClass]="{'is-invalid': Tipo?.errors && Tipo?.touched, 'is-valid': !Tipo?.errors && Tipo?.touched }"
+    class="form-control" id="tipo">
+    <div *ngIf="Tipo?.errors && Tipo?.touched">
+      <p *ngIf="Tipo?.hasError('required')" class="text-danger">El tipo es requerido</p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="url" class="form-label">URL del sitio web o repositorio de GitHub</label>
+    <input type="text" formControlName="url"
+    [ngClass]="{'is-invalid': Url?.errors && Url?.touched, 'is-valid': !Url?.errors && Url?.touched }"
+    class="form-control" id="url">
+    <div *ngIf="Url?.errors && Url?.touched">
+      <p *ngIf="Url?.hasError('required')" class="text-danger">La url del sitio web o repositroio de GitHub es requerida.</p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="logo" class="form-label">Logo o captura del proyecto</label>
+    <input type="text" formControlName="logo"
+    [ngClass]="{'is-invalid': Logo?.errors && Logo?.touched, 'is-valid': !Logo?.errors && Logo?.touched }"
+    class="form-control" id="logo">
+    <div *ngIf="Logo?.errors && Logo?.touched">
+      <p *ngIf="Logo?.hasError('required')" class="text-danger">La url del logo o captura del proyecto es requerida.</p>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid" >Guardar</button>
+</form>
+<div>
+  <br>
+  &nbsp;&nbsp;<button onclick="history.back()" class="btn btn-danger" >Volver</button>
+</div>
